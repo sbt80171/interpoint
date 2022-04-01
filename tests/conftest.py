@@ -6,7 +6,7 @@ import geopandas as gpd
 import pandas as pd
 import pytest
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from interpoint import models
 
