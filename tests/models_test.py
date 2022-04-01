@@ -7,6 +7,7 @@ from shapely.geometry import Point
 
 import conftest
 
+sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from interpoint import models
