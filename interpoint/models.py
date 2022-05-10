@@ -2,6 +2,8 @@
 縦横断方向に値を線形補間
 入力ポイント間は直線
 """
+import warnings
+
 import geopandas as gpd
 import numpy as np
 import pandas as pd
@@ -142,8 +144,14 @@ class PtAll:
             """
             df1 = pt1.gdf[[col]].rename(columns={col: 0})  # type: ignore
             df2 = pt2.gdf[[col]].rename(columns={col: i_div})  # type: ignore
+
+            warnings.simplefilter('ignore')
+
             for i in range(1, i_div):
                 df1[i] = np.nan
+
+            warnings.resetwarnings()
+
             df = pd.concat([df1, df2], axis=1)
             df = df.interpolate(axis=1)
             return df
